@@ -38,6 +38,7 @@ class Artist(Music):
     self.__total_danceability = 0
     self.__total_energy = 0
     self.__total_liveness = 0
+    # total streams
 
   def get_songs(self):
     '''
