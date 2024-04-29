@@ -1,12 +1,11 @@
-class Artist:
+from music import Music
+
+class Artist(Music):
   '''
   An artist object that has the artist's name, a list of their songs, and their metrics (danceability, energy, liveness)
-  The metrics are obtained from the Song class.
 
   Attributes
   ----------
-  name: string
-    The name of the artist of the song.
   songs: list of song objects
     The songs that belong to the artists
   total_danceability: integer
@@ -18,8 +17,6 @@ class Artist:
 
   Methods
   -------
-  get_artist_name -> string
-    Returns the name of the artist
   add_songs -> None
     Adds a song to the artist's list of songs and its metrics
   get_average_metrics -> dictionary
@@ -28,29 +25,19 @@ class Artist:
     Recommends the user a song based on their preferences
   '''
   
-  def __init__(self, name):
+  def __init__(self, artist_name):
     '''
     Constructor to build an artist object
 
     Parameters
     ----------
-    name: the artist's name
+    artist_name: the artist's name
     '''
-    self.__name = name
+    super().__init__(artist_name, '', 0, 0, 0, 0)
     self.__songs = []
     self.__total_danceability = 0
     self.__total_energy = 0
     self.__total_liveness = 0
-
-  def get_name(self):
-    '''
-    Returns the name of the artist
-
-    Returns
-    -------
-    The name of the artist
-    '''
-    return self.__name
 
   def get_songs(self):
     '''
