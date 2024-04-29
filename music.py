@@ -24,3 +24,5 @@ class Music:
 
   def get_liveness(self):
     return self.__liveness
+
+#setter for streams
