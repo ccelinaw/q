@@ -1,4 +1,6 @@
-class Song:
+from music import Music
+
+class Song(Music):
   '''
   A song object that has the artist's name, track name, number of streams and the year the song was released.
 
@@ -37,86 +39,20 @@ class Song:
     Returns the average danceability of a song, depending on the user's inputted danceability and the dataset's danceability value
 
   '''
-  def __init__(self, artist_name, streams, track_name, danceability, energy, liveness):
+  def __init__(self, artist_name, streams, track_name, danceability, energy, liveness, year_released):
     '''
-    Constructor to build a book object
+    Constructor to build a song object
 
     Parameters
     ----------
-    author: str
-      The name of the author of the book
-    price: float, optional
-      The initial price of the book
-      The default price of a book is 0.00 if none is entered
-    title: str
-      The title of the book
-    '''
-    self.__artist_name = artist_name
-    self.__streams = streams
-    self.__track_name = track_name
-    self.__danceability = danceability
-    self.__energy = energy
-    self.__liveness = liveness
 
-  def get_artist_name(self):
     '''
-    Returns the artist's name
+    super().__init__(artist_name, track_name, streams, danceability, energy, liveness)
+    self.__year_released = year_released
 
-    Returns
-    -------
-    The artist's name
-    '''
-    return self.__artist_name
-
-  def get_streams(self): 
-    '''
-    Returns the number of streams
-
-    Returns
-    -------
-    The number of streams
-    '''
-    return self.__streams
-
-  def get_track_name(self):
-    '''
-    Returns the track's name
-
-    Returns
-    -------
-    The track's name
-    '''
-    return self.__track_name
-
-  def get_danceability(self):
-    '''
-    Returns the danceability of a song
-
-    Returns
-    -------
-    The danceability of a song
-    '''
-    return self.__danceability
-
-  def get_energy(self):
-    '''
-    Returns the energy level of a song
-
-    Returns
-    -------
-    The energy level of a song
-    '''
-    return self.__energy
-
-  def get_liveness(self):
-    '''
-    Returns the liveness of a song
-
-    Returns
-    -------
-    The liveness of a song
-    '''
-    return self.__liveness
+  # Method to get the year released of a song
+  def get_year_released(self):
+    return self.__year_released
 
   # Method to update streams based on a multiplier factor
   def add_streams(self, additional_streams):
