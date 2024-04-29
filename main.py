@@ -53,14 +53,14 @@ with open('dataset.csv') as user_dataset:
       try:
         track_name = row[0]
         artist_names = row[1].split(', ')
-
+        year_released = int(row[3])
         streams = int(row[7])
         danceability = float(row[12])
         energy = float(row[14])
         liveness = int(row[17])
 
         # Creates a Song object for all the artists involved
-        song = Song(artist_names, streams, track_name, danceability, energy, liveness)
+        song = Song(artist_names, streams, track_name, danceability, energy, liveness, year_released)
         songs.append(song)
         for artist_name in artist_names:
           artist_name = artist_name.strip()
@@ -69,7 +69,6 @@ with open('dataset.csv') as user_dataset:
           artists[artist_name].add_song(song)
 
         artist_count = int(row[2])
-        year_released = int(row[3])
         month_released = months[int(row[4])]
         day_released = int(row[5])
         spotify_playlists = simplify(int(row[6]))
