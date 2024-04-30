@@ -2,7 +2,7 @@ from music import Music
 
 class Artist(Music):
   '''
-  An artist object that has the artist's name, a list of their songs, and their metrics (danceability, energy, liveness)
+  An artist object that has a list of an artist's songs and the total values of their metrics (danceability, energy, liveness)
 
   Attributes
   ----------
@@ -14,6 +14,8 @@ class Artist(Music):
     The total energy of the artist's songs (to be averaged)
   total_liveness: integer
     The total liveness of the artist's songs (to be averaged)
+  total_streams: integer
+    The total number of streams the artist has
 
   Methods
   -------
@@ -23,6 +25,10 @@ class Artist(Music):
     The average danceability, energy and liveness of an artist's song
   recommend_song -> song object
     Recommends the user a song based on their preferences
+  add_streams -> None
+    Updates the number of streams the artist has
+  update_metrics -> None
+    Updates each of the metrics (danceability, energy, liveness)
   '''
   
   def __init__(self, artist_name):
@@ -38,15 +44,15 @@ class Artist(Music):
     self.__total_danceability = 0
     self.__total_energy = 0
     self.__total_liveness = 0
-    # total streams
+    self.__total_streams = 0
 
   def get_songs(self):
     '''
-    Returns the name of the song
+    Returns the songs that belong to the artist
 
     Returns
     -------
-    The name of the song
+    The artist's song catalogue
     '''
     return self.__songs
 
@@ -110,6 +116,25 @@ class Artist(Music):
         max_streams = song.get_streams()
         recommended_song = song
     return recommended_song
+
+def add_streams(self, additional_streams):
+  '''
+  Updates the stream count of the artist based on the user's input
+
+  Parameters
+  ----------
+  additional_streams
+    The value to increase the number of streams by
+
+  Returns
+  -------
+  string
+    Returns a string that states the updated stream count for the artist
+  '''
+  for song in self.__songs:
+    song.add_streams(additional_streams)
+  self.__total_streams += additional_streams
+  return f'Updated stream count: "{self.__total_streams}"'
 
 def __update_metrics(self, song):
   '''
