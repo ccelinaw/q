@@ -118,8 +118,10 @@ for artist_name in artist_names:
         danceability_rating_input = int(input("Please enter a valid response (1-100):").strip())
       recommended_song.add_streams(stream_count)
       recommended_song.average_danceability(danceability_rating)
-      print(f"The updated stream count for {recommended_song.get_track_name()} is now {recommended_song.get_streams()} streams.")
+      print(f"The updated stream count for the {recommended_song.get_year_released()} song, {recommended_song.get_track_name()} is now {recommended_song.get_streams()} streams.")
       print(f"The updated average danceability rating is now {recommended_song.get_danceability()}.")
+      updated_total_streams = artist.add_streams(stream_count)
+      print(f'Updated total streams for this artist: {updated_total_streams}')
 
       # If the user enjoyed the song that was recommended, another song gets recommended
       user_opinion = input("Did you like this song? (yes/no): ").strip().lower()
