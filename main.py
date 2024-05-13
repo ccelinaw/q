@@ -1,6 +1,8 @@
 import json
 from random import randint
 import csv
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
